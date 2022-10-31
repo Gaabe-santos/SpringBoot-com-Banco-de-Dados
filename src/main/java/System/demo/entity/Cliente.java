@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.List;
 
 @Entity
 
@@ -14,15 +15,23 @@ public class Cliente {
     private Long id;
     private String nome;
     private String endereco;
+    private List<Produto> produtos;
 
-    public Cliente() {
-
-    }
 
     public Cliente(Long id, String nome, String endereco) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
+    }
+
+    public Cliente() {
+    }
+
+    public Cliente(String nome, String endereco) {
+
+        this.nome = nome;
+        this.endereco = endereco;
+        this.produtos = produtos;
     }
 
     public String getEndereco() {
@@ -43,5 +52,13 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 }
