@@ -4,6 +4,7 @@ import System.demo.repository.Repository;
 import System.demo.dto.ClienteDTO;
 import System.demo.entity.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -55,7 +56,7 @@ public class Controller {
     }
 
     @PutMapping("/atualize/{id}")
-    public String updateClienteById(@RequestBody ClienteDTO clienteDTO, @PathVariable Long id){
+    public String updateClienteById(@RequestBody @Validated ClienteDTO clienteDTO, @PathVariable Long id){
         Optional<Cliente> velhoCLiente = repository.findById(id);
         if(velhoCLiente.isPresent()){
             Cliente cliente = velhoCLiente.get();
