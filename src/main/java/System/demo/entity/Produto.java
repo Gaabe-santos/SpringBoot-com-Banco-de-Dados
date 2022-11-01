@@ -1,18 +1,18 @@
 package System.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Produto {
 
     @Id
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
     private Double precoUnitario;
     private Double precoTotal;
     private Integer quantidade;
+
 
     public Produto(String nome, Double precoUnitario, Double precoTotal, Integer quantidade) {
         this.nome = nome;
